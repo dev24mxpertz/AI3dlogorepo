@@ -553,7 +553,7 @@
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { useRef, useMemo } from "react";
-import { OrbitControls } from "@react-three/drei";
+import { GizmoHelper, GizmoViewport, OrbitControls } from "@react-three/drei";
 import { mergeGeometries } from "three/examples/jsm/utils/BufferGeometryUtils";
 
 const createCircularPath = (radius) => {
@@ -706,6 +706,12 @@ const Scene = () => {
 
   return (
     <Canvas camera={{ position: [50, 0, 0], fov: 60 }}>
+
+      <axesHelper args={[10]}/>
+      <gridHelper args={[20]}/>
+      <GizmoHelper alignment="bottom-right" margin={[80,80]}>
+        <GizmoViewport />
+      </GizmoHelper>
       <ambientLight intensity={0.5} />
       <directionalLight position={[5, 5, 5]} intensity={1} />
       <OrbitControls />
@@ -713,7 +719,9 @@ const Scene = () => {
         ref={parentGroupRef}
         geometry={mergedGeometry}
         material={material}
-      />
+      >
+        <meshToonMaterial color={"black"} />
+      </mesh>
     </Canvas>
   );
 };
