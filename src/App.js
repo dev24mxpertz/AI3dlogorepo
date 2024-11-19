@@ -550,9 +550,6 @@
 
 // export default Scene;
 
-
-
-
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { useRef, useMemo } from "react";
@@ -692,15 +689,13 @@ const Scene = () => {
   }, []);
 
   const material = useMemo(() => {
-
-        // const stripeTexture = new THREE.TextureLoader().load(
-        //   "https://i.pinimg.com/736x/0f/aa/4b/0faa4be4e346ed333ccec10dae15b9a9.jpg"
-        // ); // Add a stripe texture
-        // // const stripeTexture  =  new THREE.Color("ORANGE")
-        // stripeTexture.wrapS = THREE.RepeatWrapping;
-        // stripeTexture.wrapT = THREE.RepeatWrapping;
-        // stripeTexture.repeat.set(1, 1);
-
+    // const stripeTexture = new THREE.TextureLoader().load(
+    //   "https://i.pinimg.com/736x/0f/aa/4b/0faa4be4e346ed333ccec10dae15b9a9.jpg"
+    // ); // Add a stripe texture
+    // // const stripeTexture  =  new THREE.Color("ORANGE")
+    // stripeTexture.wrapS = THREE.RepeatWrapping;
+    // stripeTexture.wrapT = THREE.RepeatWrapping;
+    // stripeTexture.repeat.set(1, 1);
 
     return new THREE.MeshStandardMaterial({
       // map: stripeTexture,
@@ -710,7 +705,7 @@ const Scene = () => {
   }, []);
 
   return (
-    <Canvas camera={{ position: [0, 0, 10], fov: 60 }}>
+    <Canvas camera={{ position: [50, 0, 0], fov: 60 }}>
       <ambientLight intensity={0.5} />
       <directionalLight position={[5, 5, 5]} intensity={1} />
       <OrbitControls />
@@ -724,4 +719,3 @@ const Scene = () => {
 };
 
 export default Scene;
-
